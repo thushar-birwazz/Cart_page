@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart_Page</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Cart Page</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Contact</a>
+            <a href="#">Sign In</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="product_container">
+            <div class="img_container">
+                <div class="slider">
+                    <img src="images/product_1.jpg" alt="Product Image1">
+                    <img src="images/product_2.jpg" alt="Product Image2">
+                    <img src="images/product_3.jpg" alt="Product Image3">
+                    <img src="images/product_4.jpg" alt="Product Image4">
+                </div>
+                <button class="slider-btn prev" onclick="prevSlide()">&#10094;</button>
+                <button class="slider-btn next" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="product_info">
+                <h1>Boult X Mustang</h1>
+                <p class="description">Boult X Mustang Newly Launched Torq TWS Earbuds with 60H Playtime, App Support, 4
+                    Mics ENC, 45ms Low Latency, 13mm Driver, Breathing LEDs, Touch Control, Made in India, IPX5 Ear buds
+                    Wireless (Yellow).</p>
+                <p class="price">₹1,799</p>
+                <button class="add_to_cart">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <section class="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review">★★★★★ - Amazing sound quality and great battery life!</div>
+        <div class="review">★★★★☆ - Stylish design, but the case feels a bit bulky.</div>
+        <div class="review">★★★★★ - Love the deep bass and clear vocals, perfect for music lovers.</div>
+        <div class="review">★★★☆☆ - Good overall, but the touch controls could be more responsive.</div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 MOTIONCUT...</p>
+    </footer>
+
+    <script>
+        let index = 0;
+        const images = document.querySelector(".slider");
+        const totalImages = images.children.length;
+
+        function updateSlider() {
+            images.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        function nextSlide() {
+            index = (index + 1) % totalImages;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + totalImages) % totalImages;
+            updateSlider();
+        }
+
+        // Auto-slide function every 5 seconds
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+
+</html>
